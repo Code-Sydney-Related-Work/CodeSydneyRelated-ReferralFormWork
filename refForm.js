@@ -449,7 +449,9 @@ newRefFormButton.addEventListener('click', newReferralForm);
 newRefFormButton.addEventListener('click', (e)=>{e.preventDefault();});
 
 //Setting up Event Listener for the click of the 'Edit' button
+
 let editDeleteBtn = document.getElementById('tableRefList');
+let clearBtn = document.getElementById('clearBtn');
 let referId; //Variable for storing the Referral Num of the Referral being edited
 editDeleteBtn.addEventListener('click', (event)=>{
     console.log(event.target.classList);
@@ -462,6 +464,7 @@ editDeleteBtn.addEventListener('click', (event)=>{
         referralList.loadFormForEdit(referId);
         editSavBtn.style.display = "block";
         submitBtn.style.display = "none";
+        clearBtn.style.display = "none";
     }    
 });
 
@@ -472,7 +475,7 @@ editSavBtn.addEventListener('click', editFormFunc);
 editSavBtn.addEventListener('click', (e)=>{e.preventDefault();});
 
 // Setting up Event Listener for the 'Clear' button
-let clearBtn = document.getElementById('clearBtn');
+
 
 clearBtn.addEventListener('click', resetFormFunc);
 clearBtn.addEventListener('click',(e)=>{e.preventDefault();});
