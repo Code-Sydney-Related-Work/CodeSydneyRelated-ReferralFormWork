@@ -31,7 +31,7 @@
                   </nav>
                  <div id="titleAndBut" class= "headerTitle">
                      <div><h2>Referral List</h2></div><br>
-                 <button class="newRefBtn" id="newRefFormBtn">Start A New Referral</button>
+                 <button class="btn-sm newRefBtn" id="newRefFormBtn">Start A New Referral</button>
                 </div>
             </header>           
         </button>
@@ -479,7 +479,7 @@
                 <!-- section_8_end -->
                 <!-- section_9_start -->
                 <h4>Section 9 - Other Information</h4>
-                <div class="section8 ms-3 mb-3 px-3"> 
+                <div class="section9 ms-3 mb-3 px-3"> 
                     <div class="form-floating mt-3 mb-3">                                        
                         <textarea class="form-control" name="otherInfo9" id="otherInfo9"></textarea> 
                         <label for="otherInfo9">Enter any other relevant information here:</label>                   
@@ -497,7 +497,7 @@
                 <!-- section_10_end -->
                 <!-- section_11_start -->
                 <h4>Section 11 - OFFICE USE ONLY - Intake Outcome</h4>
-                <div class="section8 ms-3 mb-3 px-3">                
+                <div class="section11 ms-3 mb-3 px-3">                
                     <div class="input-group mt-2 ">
                         <span class="input-group-text" id="inputGroup-sizing-default">Date and Time of Processing Form:</span>
                         <input type="datetime-local" style="margin-left:0.05rem" class="datetimeIntakeOutcome" id="datetimeIntakeOutcome" aria-label="Date and Time of Intake Outcome" aria-describedby="inputGroup-sizing-default">
@@ -617,7 +617,42 @@
                     </div> 
                 </div>
                 <!-- section_11_end -->
-                <div class="form-floating mb-3 ms-3 px-3" style="padding:1rem"><p><button type="submit" id="submitBtn" class="finalSubmit" style="padding:0.5rem; font-weight: bold; background:gray; width:10rem; " >SUBMIT</button></p></div>
+                <div class="ms-3 mb-1 px-1">
+                    <div class="d-grid gap-2 col-6 mx-auto" style="padding:1rem">
+                        <button type="button" id="submitBtn" class="btn btn-primary btn-sm finalSubmit" style="padding:0.5rem; font-weight: bold; background:gray; width:10rem; " >
+                            SUBMIT
+                        </button>
+                    </div>
+                </div>
+                <div class="ms-3 mb-1 px-1">
+                    <div class="d-grid gap-2 col-6 mx-auto" style="padding:1rem">
+                        <button type="button" id="editSaveBtn" class="btn btn-primary btn-sm editSave" style="padding:0.5rem; font-weight: bold; background:gray; width:10rem;  display: none" >
+                            EDIT/SAVE
+                        </button>
+                    </div>
+                </div>
+                <div class="ms-3 mb-3 px-1">
+                    <div class="d-grid gap-2 col-6 mx-auto" style="padding:1rem">
+                        <button type="button" id="clearBtn" class="btn btn-primary btn-sm clear" style="padding:0.5rem; font-weight: bold; background: gray; width: 10rem; display: block" >
+                            CLEAR
+                        </button>
+                    </div>                        
+                </div>
+                <div class="ms-3 mb-3 px-1">
+                    <div class="d-grid gap-2 col-9 mx-auto" style="padding:1rem">
+                        <div class="btn-group navButton" role="group" aria-label="Basic outlined example">
+
+                            <button type="button" id="backBtn" class="btn btn-outline-warning" style="background: coral; color: white; width: 35%;"><< Go Back</button>
+
+                            <button type="button" disabled class="btn btn-sm btn-outline-warning" style="width: 75%;"></button>
+
+                            <button type="button" id="forwardBtn" class="btn btn-outline-warning" style="background: coral; color: white;width: 35%;">Forward >></button>
+
+                          </div>
+                    </div>
+                </div>
+                
+
                 <p style="margin-left:3rem; font-weight: bold; font-size: small;">Please Note: Completing this form does not indicate acceptance of referral and placement on program/s.</p>
             </form>
             <footer>                
