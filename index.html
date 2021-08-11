@@ -44,7 +44,7 @@
                 <th scope="col">Ref Name</th>
                 <th scope="col">Client Name</th>                        
                 <th scope="col">Client Phone</th>
-                <th scope="col">Edit/Delete</th>
+                <th scope="col">Edit Details </th>
                 </tr>
             </thead>
             <tbody id="tableRefList">
@@ -497,7 +497,7 @@
                 <!-- section_10_end -->
                 <!-- section_11_start -->
                 <h4>Section 11 - OFFICE USE ONLY - Intake Outcome</h4>
-                <div class="section11 ms-3 mb-3 px-3">                
+                <div class="section11 ms-3 mb-1 px-3">                
                     <div class="input-group mt-2 ">
                         <span class="input-group-text" id="inputGroup-sizing-default">Date and Time of Processing Form:</span>
                         <input type="datetime-local" style="margin-left:0.05rem" class="datetimeIntakeOutcome" id="datetimeIntakeOutcome" aria-label="Date and Time of Intake Outcome" aria-describedby="inputGroup-sizing-default">
@@ -617,44 +617,40 @@
                     </div> 
                 </div>
                 <!-- section_11_end -->
-                <div class="ms-3 mb-1 px-1">
-                    <div class="d-grid gap-2 col-6 mx-auto" style="padding:1rem">
-                        <button type="button" id="submitBtn" class="btn btn-primary btn-sm finalSubmit" style="padding:0.5rem; font-weight: bold; background:gray; width:10rem; " >
-                            SUBMIT
-                        </button>
-                    </div>
-                </div>
-                <div class="ms-3 mb-1 px-1">
-                    <div class="d-grid gap-2 col-6 mx-auto" style="padding:1rem">
-                        <button type="button" id="editSaveBtn" class="btn btn-primary btn-sm editSave" style="padding:0.5rem; font-weight: bold; background:gray; width:10rem;  display: none" >
-                            EDIT/SAVE
-                        </button>
-                    </div>
-                </div>
-                <div class="ms-3 mb-3 px-1">
-                    <div class="d-grid gap-2 col-6 mx-auto" style="padding:1rem">
+                <div class="ms-3 mb-2 mt-3 px-1">
+                    <div style="display:flex; flex-direction:row; justify-content:space-around; align-content:center ;">
                         <button type="button" id="clearBtn" class="btn btn-primary btn-sm clear" style="padding:0.5rem; font-weight: bold; background: gray; width: 10rem; display: block" >
                             CLEAR
                         </button>
-                    </div>                        
-                </div>
-                <div class="ms-3 mb-3 px-1">
-                    <div class="d-grid gap-2 col-9 mx-auto" style="padding:1rem">
-                        <div class="btn-group navButton" role="group" aria-label="Basic outlined example">
-
-                            <button type="button" id="backBtn" class="btn btn-outline-warning" style="background: coral; color: white; width: 35%;"><< Go Back</button>
-
-                            <button type="button" disabled class="btn btn-sm btn-outline-warning" style="width: 75%;"></button>
-
-                            <button type="button" id="forwardBtn" class="btn btn-outline-warning" style="background: coral; color: white;width: 35%;">Forward >></button>
-
-                          </div>
+                        <button type="button" id="submitBtn" class="btn btn-primary btn-sm finalSubmit" style="padding:0.5rem; font-weight: bold; background:gray; width:10rem; " >
+                            SUBMIT
+                        </button>
+                        
                     </div>
+                    <div >
+                        
+                    </div>      
                 </div>
-                
-
+                         
+                <div style="display:flex; flex-direction:row; justify-content:space-around; align-content:flex-end ;">
+                    
+                    <div style='display:flex; flex-direction:row; justify-content:space-evenly; align-content:flex-end;'>
+                        <button type="button" id="editSaveBtn" class="btn btn-primary mb-5 mt-3 btn-md editSave" style="padding:0.5rem; font-weight:bold; background:gray; width:8rem; display:none">
+                            SAVE
+                        </button>
+                        <button type="button" id="backBtn" class="btn btn-primary btn-md mb-5 ms-2 mt-3 backb" style="padding:0.5rem; font-weight:bold; background:gray; color: white; width:8rem;">
+                            BACK
+                        </button> 
+                    </div>
+                    
+                    <button type="button" id="deleteBtn" class="btn btn-primary mb-5 me-1 mt-3 btn-md deleteB" style="padding:0.5rem; font-weight:bold; background:rgb(199, 9, 9); width:8rem; display:none">
+                        DELETE
+                    </button>
+                </div>
                 <p style="margin-left:3rem; font-weight: bold; font-size: small;">Please Note: Completing this form does not indicate acceptance of referral and placement on program/s.</p>
             </form>
+            
+            
             <footer>                
                 <p class="copyright">Copyright Protected - Created by Code.Sydney for Deadly Connection</p>
             </footer> 

@@ -218,7 +218,7 @@ function createTableHtml(tempNum, tempDate, tempAgency, tempName, clientName, cl
                         <td>${tempName}</td>
                         <td>${clientName}</td>
                         <td>${clientPhone}</td>
-                        <td><button type="submit" data-id="${tempNum}" data-loaded="true" class="btn btn-primary btn-sm edit_btn">Edit Data</button></td>
+                        <td><button type="submit" data-id="${tempNum}" data-loaded="true" class="btn btn-primary btn-sm edit_btn"> Click here</button></td>
                     </tr>`;
     return temphtml;
 }
@@ -326,6 +326,16 @@ class referralFormClass {
         console.log(this._refArray);
     }
 
+    deleteIndivData(id){
+        let tempDelFormNum = id; //The id is the dataset-id of the 'Edit/Save' button clicked to reach the data.
+        for(let i=0; i < this._refArray.length; i++){
+            if(this._refArray[i]['refformNum'] === id){
+                console.log(`The individual data deleted was ${this._refArray[i]}`);
+                this._refArray.splice(i, 1);
+            }
+        }        
+    }
+
     //The code for creating the array of data required for the rendering the dashboard list
     createRefList(){
         console.log(this._refArray);
@@ -350,7 +360,6 @@ class referralFormClass {
             }       
         }        
     }
-//  --------- End of Class ------------
 
     //Rendering of the dashboard list
     renderRefList(){
@@ -385,6 +394,8 @@ class referralFormClass {
         //console.log("I am here");
     }
 }
+//  --------- End of Class ------------
+
 function AddFormExt(){
     referralList.addForm();
     //referralList.renderRefList();
@@ -403,6 +414,11 @@ function newReferralForm(){
     tempRefForm.reset();
     tempRefList.style.display = "none";
     tempTitleButt.style.display = "none";    
+    submitBtn.style.display = "block";
+    editSavBtn.style.display = "none";
+    backButton.style.display = "block";
+    deleteBtn.style.display = "none";
+
 }
 
 //The function to save the edit to the referral data
@@ -429,9 +445,24 @@ function navigateBack(){
     referralList.renderRefList();
 }
 
-//The function to navigate forward
-function navigateForward(){
-    alert("Nothing ahead to look at, as yet!");
+// //The function to navigate forward
+// function navigateForward(){
+//     alert("Nothing ahead to look at, as yet!");
+// }
+
+//The function for deleting individual referral data
+function delData(){
+    if(confirm("Do you want to delete it?")){
+        referralList.deleteIndivData(referId);
+        referralList.createRefList();
+        tempRefForm.style.display = "none";
+        tempRefList.style.display = "block";
+        tempTitleButt.style.display = "block";
+        referralList.saveForm();
+        referralList.renderRefList();
+    }else{
+       
+    }
 }
 
 //Instantiation of referralFormClass
@@ -450,10 +481,9 @@ newRefFormButton.addEventListener('click', (e)=>{e.preventDefault();});
 
 //Setting up Event Listener for the click of the 'Edit' button
 
-let editDeleteBtn = document.getElementById('tableRefList');
-let clearBtn = document.getElementById('clearBtn');
+let editBtn = document.getElementById('tableRefList');
 let referId; //Variable for storing the Referral Num of the Referral being edited
-editDeleteBtn.addEventListener('click', (event)=>{
+editBtn.addEventListener('click', (event)=>{
     console.log(event.target.classList);
     if(event.target.classList.contains('edit_btn')){
         const targetElem = event.target;
@@ -465,10 +495,11 @@ editDeleteBtn.addEventListener('click', (event)=>{
         editSavBtn.style.display = "block";
         submitBtn.style.display = "none";
         clearBtn.style.display = "none";
+        deleteBtn.style.display = "block";
     }    
 });
 
-//Setting up Event Listener for the 'Edit/Save' button
+//Setting up Event Listener for the 'Save' button
 let editSavBtn = document.getElementById('editSaveBtn');
 
 editSavBtn.addEventListener('click', editFormFunc);
@@ -476,7 +507,7 @@ editSavBtn.addEventListener('click', (e)=>{e.preventDefault();});
 
 // Setting up Event Listener for the 'Clear' button
 
-
+let clearBtn = document.getElementById('clearBtn'); // This is the element for the event one after the present one
 clearBtn.addEventListener('click', resetFormFunc);
 clearBtn.addEventListener('click',(e)=>{e.preventDefault();});
 
@@ -485,6 +516,10 @@ let backButton = document.getElementById('backBtn');
 backButton.addEventListener('click', navigateBack);
 backButton.addEventListener('click', (e)=>{e.preventDefault();});
 
-let forwardButton = document.getElementById('forwardBtn');
-forwardButton.addEventListener('click', navigateForward);
-forwardButton.addEventListener('click', (e)=>{e.preventDefault();});
+// let forwardButton = document.getElementById('forwardBtn');
+// forwardButton.addEventListener('click', navigateForward);
+// forwardButton.addEventListener('click', (e)=>{e.preventDefault();});
+
+let deleteBtn = document.getElementById('deleteBtn');
+deleteBtn.addEventListener('click', delData);
+deleteBtn.addEventListener('click', (e)=>{e.preventDefault();});

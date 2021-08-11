@@ -188,11 +188,11 @@ td {
 .input_form {
   background:rgb(238, 195, 95)
 }
-.clear, .editSave, .finalSubmit {
+.clear, .editSave, .finalSubmit .deleteB{
 display:flex;
 justify-content: center;
 align-content:stretch;
-margin-left: 25%;
+width: 100%;
 }
 
 .navButton {
@@ -200,3 +200,8 @@ margin-left: 25%;
   justify-content: center;
   align-content: stretch;
 }
+
+button:focus {
+  outline:none !important;
+}
+button.clicked {outline: none;}
