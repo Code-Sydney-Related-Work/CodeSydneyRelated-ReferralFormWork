@@ -256,7 +256,7 @@ class referralFormClass {
 
     //Adding new referral object to the referral objects array
     addForm(){
-        console.log(`Hi you have reached addform method of the class`);
+        //console.log(`Hi you have reached addform method of the class`);
         const tempObject = {};
         let tempFormNum = this.formNumGenerate();               
         tempObject.refformNum = tempFormNum;
@@ -274,9 +274,9 @@ class referralFormClass {
         tempObject.clientcultident = clientCultIdent.value;
         tempObject.clientadd = clientAdd.value;
         tempObject.clientphone = clientPhone.value;
-        console.log(tempObject);
+        //console.log(tempObject);
         this._refArray.push(tempObject);
-        console.log(this._refArray[0].refname);        
+        //console.log(this._refArray[0].refname);        
     }
 
     loadFormForEdit(){
@@ -322,7 +322,7 @@ class referralFormClass {
                 this._refArray.splice(i, 1, tempObject2);
             }
         }
-        console.log(`The refArray is ${tempObject2}`);
+        //console.log(`The refArray is ${tempObject2}`);
         console.log(this._refArray);
     }
 
@@ -330,7 +330,7 @@ class referralFormClass {
         let tempDelFormNum = id; //The id is the dataset-id of the 'Edit/Save' button clicked to reach the data.
         for(let i=0; i < this._refArray.length; i++){
             if(this._refArray[i]['refformNum'] === id){
-                console.log(`The individual data deleted was ${this._refArray[i]}`);
+                //console.log(`The individual data deleted was ${this._refArray[i]}`);
                 this._refArray.splice(i, 1);
             }
         }        
@@ -344,33 +344,33 @@ class referralFormClass {
             //console.log(`The first element is ${this._refArray[0]['refname']}`);
             for(const arrTem of this._refArray){
                 let tempNum = arrTem['refformNum'];
-                console.log(tempNum);
+                //console.log(tempNum);
                 let tempDate = arrTem['refdate'];
-                console.log(tempDate);
+                //console.log(tempDate);
                 let tempAgency = arrTem['refagency'];
                 let tempName = arrTem['refname'];
                 let tempClientName = arrTem['clientname'];
                 let tempClientPhone = arrTem['clientphone'];
                 let temphtml = createTableHtml(tempNum, tempDate, tempAgency, tempName, tempClientName, tempClientPhone);
                
-                console.log(temphtml);
+                //console.log(temphtml);
                 this._refHtml.push(temphtml);
-                console.log(this._refHtml);  
-                //this.renderRefList();          
+                //console.log(this._refHtml);  
+                          
             }       
         }        
     }
 
     //Rendering of the dashboard list
     renderRefList(){
-        console.log(`you have reached renderRefList`);
+        //console.log(`you have reached renderRefList`);
         tempString = this._refHtml.join('\n');
-        console.log(`this is the ${tempString}`);
-        console.log(tempString);
+        //console.log(`this is the ${tempString}`);
+        //console.log(tempString);
         // let targettableArea = document.getElementById('tableRefList');
         targettableArea.display = "block";
         targettableArea.innerHTML = tempString;
-        console.log(`I am here in the renderRefList`);
+        //console.log(`I am here in the renderRefList`);
     }
 
     //Saving all the available referral data to the Local Storage
@@ -379,7 +379,7 @@ class referralFormClass {
         localStorage.setItem("Referrals", formJson);
         let formNumJson = JSON.stringify(this._currFormNum);
         localStorage.setItem("CurrentFormNum", formNumJson);
-        console.log(`Saved the form to the local storage`);
+        //console.log(`Saved the form to the local storage`);
     }
 
     //Loading of the available referral data from the Local Storage
@@ -405,6 +405,7 @@ function AddFormExt(){
     tempTitleButt.style.display = "block";
     referralList.saveForm();
     referralList.renderRefList();
+    tempTitleButt.scrollIntoView();
 }
 
 //The function to display the new Referral Form
@@ -430,6 +431,7 @@ function editFormFunc(){
     tempTitleButt.style.display = "block";
     referralList.saveForm();
     referralList.renderRefList();
+    tempTitleButt.scrollIntoView();
 }
 
 //The function for resetting the form
@@ -443,6 +445,7 @@ function navigateBack(){
     tempRefList.style.display = "block";
     tempTitleButt.style.display = "block";
     referralList.renderRefList();
+    tempTitleButt.scrollIntoView();
 }
 
 // //The function to navigate forward
@@ -460,6 +463,7 @@ function delData(){
         tempTitleButt.style.display = "block";
         referralList.saveForm();
         referralList.renderRefList();
+        tempTitleButt.scrollIntoView();
     }else{
        
     }
@@ -484,12 +488,12 @@ newRefFormButton.addEventListener('click', (e)=>{e.preventDefault();});
 let editBtn = document.getElementById('tableRefList');
 let referId; //Variable for storing the Referral Num of the Referral being edited
 editBtn.addEventListener('click', (event)=>{
-    console.log(event.target.classList);
+    //console.log(event.target.classList);
     if(event.target.classList.contains('edit_btn')){
         const targetElem = event.target;
-        console.log(targetElem);
+        //console.log(targetElem);
         referId = parseInt(targetElem.dataset.id);//Obtaining the dataset id of the button clicked
-        console.log(referId);
+        //console.log(referId);
         newReferralForm();
         referralList.loadFormForEdit(referId);
         editSavBtn.style.display = "block";
